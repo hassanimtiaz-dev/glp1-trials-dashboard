@@ -144,11 +144,11 @@ def show(fig, height=340, legend=False):
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
         font=dict(family="sans-serif", size=13, color=INK),
         hoverlabel=dict(bgcolor="white", font_size=13, font_color=INK),
-        barcornerradius=3,
+        barcornerradius=3, dragmode=False,  # charts are read-only: no accidental drag or zoom
     )
     fig.update_xaxes(automargin=True)  # make room for axis labels
     fig.update_yaxes(automargin=True)
-    st.plotly_chart(fig, width="stretch", theme=None, config={"displayModeBar": False})
+    st.plotly_chart(fig, width="stretch", theme=None, config={"displayModeBar": False, "scrollZoom": False})
 
 
 def card_title(title, note=None):
