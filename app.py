@@ -120,7 +120,9 @@ if f.empty:
 countries_in_f = {c for lst in f["country_list"] for c in lst}
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Total trials", f"{len(f):,}", border=True)
-c2.metric("Total participants", f"{int(f['enrolment'].sum()):,}", border=True)
+total_people = int(f["enrolment"].sum())
+c2.metric("Total participants", f"{total_people / 1e6:.2f}M" if total_people >= 1_000_000 else f"{total_people:,}",
+          border=True)
 c3.metric("Sponsors", f"{f['sponsor'].nunique():,}", border=True)
 c4.metric("Countries", f"{len(countries_in_f):,}", border=True)
 
@@ -261,7 +263,8 @@ with st.container(border=True):
         ))
         fig.update_geos(projection_type="natural earth", showframe=False, showcoastlines=False,
                         showcountries=True, countrycolor="white", landcolor="#eceae5",
-                        showocean=False, fitbounds="locations", bgcolor="rgba(0,0,0,0)")
+                        showocean=False, bgcolor="rgba(0,0,0,0)",
+                        center=dict(lat=14, lon=8), projection_scale=1.15)
         show(fig, height=480)
 
 

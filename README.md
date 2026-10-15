@@ -4,7 +4,7 @@ An interactive dashboard that analyses **742 clinical trials** of GLP-1-based ob
 
 Built with Python, pandas, Plotly and Streamlit.
 
-**Live dashboard:** LIVE_APP_URL
+**Live dashboard:** [glp1-trials.streamlit.app](https://glp1-trials.streamlit.app/)
 
 ![Dashboard overview: headline numbers, trials per year, phase, sponsors and status](docs/dashboard-overview.png)
 
